@@ -26,7 +26,7 @@ import tacos.Taco;
 public class DesignTacoController {
 
     @GetMapping
-    public String showDesignForm(Model model){
+    public String showDesignForm(Model model) {
         List<Ingredient> ingredients = Arrays.asList(
                 new Ingredient("FLTO", "pszenna", Ingredient.Type.WRAP),
                 new Ingredient("COTO", "kukurydziana", Ingredient.Type.WRAP),
@@ -39,13 +39,13 @@ public class DesignTacoController {
                 new Ingredient("SLSA", "pikantny sos pomidorowy", Ingredient.Type.SAUCE),
                 new Ingredient("SRCR", "śmietana", Ingredient.Type.SAUCE)
         );
-       Type[] types = Ingredient.Type.values();
-       for (Type type: types){
-           model.addAttribute(type.toString().toLowerCase(),
-                   filterByType(ingredients, type));
-       }
-       model.addAttribute("design", new Taco());
-       return "design";
+        Type[] types = Ingredient.Type.values();
+        for (Type type : types) {
+            model.addAttribute(type.toString().toLowerCase(),
+                    filterByType(ingredients, type));
+        }
+        model.addAttribute("design", new Taco());
+        return "design";
     }
 
 
@@ -55,4 +55,11 @@ public class DesignTacoController {
                 .filter(x -> x.getType().equals(type))
                 .collect(Collectors.toList());
     }
+
+//    @PostMapping
+//    public String processDesign(Design design) {
+//        log.info("Przetwarzanie proektu taco: " + design);
+//        return "redirect:/orders/current";
+//    }
+
 }
