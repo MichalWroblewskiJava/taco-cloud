@@ -56,10 +56,13 @@ public class DesignTacoController {
                 .collect(Collectors.toList());
     }
 
-//    @PostMapping
-//    public String processDesign(Design design) {
-//        log.info("Przetwarzanie proektu taco: " + design);
-//        return "redirect:/orders/current";
-//    }
+    @PostMapping
+    public String processDesign(@Valid Taco design, Errors errors) {
+        if (errors.hasErrors()) {
+            return "design";
+        }
+        log.info("Przetwarzanie proektu taco: " + design);
+        return "redirect:/orders/current";
+    }
 
 }
