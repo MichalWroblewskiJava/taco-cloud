@@ -61,7 +61,7 @@ public class DesignTacoController {
         if (errors.hasErrors()) {
             return "design";
         }
-        log.info("Przetwarzanie proektu taco: " + design);
+        log.info("Przetwarzanie projektu taco: " + design);
         return "redirect:/orders/current";
     }
 

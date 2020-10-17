@@ -19,7 +19,9 @@ import tacos.controller.HomeController;
  * Testowanie w kontekście aplikacji Spring MVC
  */
 
-@WebMvcTest(HomeController.class)
+@WebMvcTest(
+        //HomeController.class
+)
 public class HomeControllerTest {
 
     /**

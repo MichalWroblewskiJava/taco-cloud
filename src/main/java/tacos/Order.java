@@ -6,9 +6,15 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.CreditCardNumber;
 
+import java.util.Date;
+
 
 @Data
 public class Order {
+
+    private Long id;
+
+    private Date placedAt;
 
     @NotBlank(message = "Podanie imienia i nazwiska jest obowiazkowe.")
     private String name;
