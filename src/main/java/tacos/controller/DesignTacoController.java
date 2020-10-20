@@ -22,6 +22,7 @@ import tacos.Ingredient;
 import tacos.Ingredient.Type;
 import tacos.Taco;
 import tacos.repository.IngredientRepository;
+import tacos.repository.TacoRepository;
 
 
 @Slf4j
@@ -31,10 +32,14 @@ import tacos.repository.IngredientRepository;
 public class DesignTacoController {
 
     private final IngredientRepository ingredientRepo;
+    private TacoRepository tacoRepo;
+
 
     @Autowired
-    public DesignTacoController(IngredientRepository ingredientRepo){
+    public DesignTacoController(IngredientRepository ingredientRepo,
+                                TacoRepository tacoRepo){
         this.ingredientRepo=ingredientRepo;
+        this.tacoRepo=tacoRepo;
     }
 
     @GetMapping
