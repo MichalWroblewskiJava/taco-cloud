@@ -1,12 +1,16 @@
 package tacos;
 
 import lombok.Data;
+
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.CreditCardNumber;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 @Data
@@ -39,4 +43,11 @@ public class Order {
 
     @Digits(integer = 3, fraction = 0, message = "Nieprawidłowy kod CVV.")
     private String ccCVV;
+
+    @ManyToMany(targetEntity=Taco.class)
+    private List<Taco> tacos = new ArrayList<>();
+
+    public void addDesign(Taco design) {
+        this.tacos.add(design);
+    }
 }
