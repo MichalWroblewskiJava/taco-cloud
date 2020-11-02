@@ -34,8 +34,9 @@ public class DesignTacoController {
 
 
     @Autowired
-    public DesignTacoController(IngredientRepository ingredientRepo,
-                                TacoRepository designRepo) {
+    public DesignTacoController(
+            IngredientRepository ingredientRepo,
+            TacoRepository designRepo) {
         this.ingredientRepo = ingredientRepo;
         this.designRepo = designRepo;
     }
@@ -75,12 +76,13 @@ public class DesignTacoController {
             model.addAttribute(type.toString().toLowerCase(),
                     filterByType(ingredients, type));
         }
-        model.addAttribute("design", new Taco());
+       // model.addAttribute("design", new Taco());
         return "design";
     }
 
 
-    private List<Ingredient> filterByType(List<Ingredient> ingredients, Type type) {
+    private List<Ingredient> filterByType(
+            List<Ingredient> ingredients, Type type) {
         return ingredients
                 .stream()
                 .filter(x -> x.getType().equals(type))
@@ -88,7 +90,10 @@ public class DesignTacoController {
     }
 
     @PostMapping
-    public String processDesign(@Valid Taco design, Errors errors, @ModelAttribute Order order) {
+    public String processDesign(
+            @Valid Taco design, Errors errors,
+            @ModelAttribute Order order) {
+
         if (errors.hasErrors()) {
             return "design";
         }

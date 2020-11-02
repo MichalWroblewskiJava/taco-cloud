@@ -44,7 +44,7 @@ public class Order {
     @Digits(integer = 3, fraction = 0, message = "Nieprawidłowy kod CVV.")
     private String ccCVV;
 
-    @ManyToMany(targetEntity=Taco.class)
+    //@ManyToMany(targetEntity=Taco.class)
     private List<Taco> tacos = new ArrayList<>();
 
     public void addDesign(Taco design) {
