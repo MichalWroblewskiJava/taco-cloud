@@ -9,14 +9,14 @@ import java.util.List;
 
 public interface OrderRepositoryJPA extends CrudRepository<Order, Long> {
 
-    List<Order> findByDeliveryZip(String deliveryZip);
-
-    List<Order> readOrdersByDeliveryZipAndPlacedAtBetween(String deliveryZip, Date startDate, Date endDate);
-
-    List<Order> findByDeliveryToAndDeliveryCityAllIgnoreCase(String deliveryTo, String deliveryCity);
-
-    List<Order> findByDeliveryCityOrderByDeliveryTo(String city);
-
-    @Query("Order o where o.deliveryCity='Seatttle'")
-    List<Order> readOrdersDeliveredInSeattle();
+//    List<Order> findByDeliveryZip(String deliveryZip);
+//
+//    List<Order> readOrdersByDeliveryZipAndPlacedAtBetween(String deliveryZip, Date startDate, Date endDate);
+//
+//    List<Order> findByDeliveryToAndDeliveryCityAllIgnoreCase(String deliveryTo, String deliveryCity);
+//
+//    List<Order> findByDeliveryCityOrderByDeliveryTo(String city);
+//
+//    @Query("Order o where o.deliveryCity='Seatttle'")
+//    List<Order> readOrdersDeliveredInSeattle();
 }
